@@ -23,9 +23,9 @@ app.use((req,res,next)=>{
   next();
 });
 
-app.use((req,res,next)=>{
-  res.render('maintenace.hbs');
-});
+//app.use((req,res,next)=>{
+//  res.render('maintenace.hbs');
+//});
 hbs.registerHelper('getCurrentYear',()=>{
   return new Date().getFullYear()
 });
@@ -37,7 +37,7 @@ hbs.registerHelper('screenIt',(text)=>{
 app.get('/',(req,res)=>{
   res.render('home.hbs',{
     pageTitle:'Home Page',
-    welcomeMessage: 'Shubhangi needs family very much'
+    welcomeMessage: 'Shubhangi is born to be a coder'
   });
 });
 
@@ -47,7 +47,11 @@ app.get('/about',(req,res)=>{
   });
 });
 
-
+app.get('/project',(req,res)=>{
+  res.render('project.hbs',{
+    pageTitle:'Projects'
+  });
+});
 
 app.get('/bad',(req,res)=>{
   res.send({
